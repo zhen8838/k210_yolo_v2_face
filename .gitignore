@@ -1,0 +1,11 @@
+.pytest_cache
+.vscode
+*.pyc
+log
+data/*
+!data/voc_anchors.list
+test
+tmp
+*.pb
+*.tflite
+*.MOV
