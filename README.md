@@ -26,9 +26,22 @@ python3 make_fddb_list.py
 
 ## Make Anchor List
 
+First extract all annotations.
+
 ```sh
-make anchor_list DATASET=fddb
+python3 get_all_annotations.py data/fddb_ann.list
 ```
+
+It will save all annotations to `tmp/all.txt`, Then use kmeans find the anchors:
+
+```sh
+python3 make_anchor_list.py tmp/all.txt data/fddb_anchors.list
+```
+
+**NOTE：** 
+-   output file name should be `${datasetname}_anchors.list`
+-   if use other dataset, should use `python3 make_anchor_list.py tmp/all.txt data/fddb_anchors.list --is_random=True`
+-   when `--is_random=True`, may be unsuccessful , just repeat it several times.
 
 Now generate the `data/fddb_anchors.list`
 
